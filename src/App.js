@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
+import Numbers from "./components/Numbers";
 // import Frame from "./components/Frame";
 function App() {
   // inicializo la cadena de datos
@@ -32,7 +33,7 @@ function App() {
         </div>
         {/* muestra los botones  */}
         <div className="wrapper-special">
-          <div className="digits ">{numbers}</div>
+          <Numbers numbers={numbers}></Numbers>
           <div className="digits">
             <button
               id="operator"
