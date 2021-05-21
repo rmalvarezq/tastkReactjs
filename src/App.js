@@ -11,7 +11,7 @@ function App() {
   // con el push agrego elementos al final de una matriz, devolviendo una nueva longintud
   [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].forEach((item) => {
     numbers.push(
-      <button
+      <button 
         onClick={(e) => {
           // enviamos los valores a la cadena de datos
           setData(data + e.target.value);
@@ -29,11 +29,11 @@ function App() {
       <div className="unit-wrapper">
         <div>
           <h2>Result</h2>
-          <div className="show-input">{data}</div>
+          <div className="input">{data}</div>
         </div>
-        {/* muestra los botones  */}
+        {/* muestra los botones de números y operadores  */}
         <div className="wrapper-special">
-          <Numbers numbers={numbers}></Numbers>
+          <Numbers  numbers={numbers}></Numbers>
           <div className="digits">
             <button
               id="operator"
@@ -90,12 +90,17 @@ function App() {
                   setData(
                     // la funcion eval evalua el código js representado como una cadena, ejecutando operaciones matemáticas
                     // no es recomendado utilizar
+
                     String(eval(data)).length > 3 &&
                       String(eval(data)).includes(".")
                       ? // ? -> si el método incluye un punto, imprima con dos dígitos después de la coma .toFixed ---> da dos números después de la com
                         String(eval(data).toFixed(2)) //
                       : // caso contrario solo imprima el string
                         String(eval(data))
+                    // String(eval(data)).length < 3 &&
+                    //   String(eval(data)).includes(".")
+                    //   ? alert("datos incorrectos")
+                    //   : String(eval(data))
                   );
                   console.log(data);
                 } catch (e) {
